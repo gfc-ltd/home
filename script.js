@@ -72,15 +72,7 @@ window.addEventListener('load', function() {
 
 // Handle contact form submission
 document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        message: document.getElementById('message').value
-    };
+    // Don't prevent default - let the form submit naturally to Google Forms
     
     // Show loading state
     const submitBtn = this.querySelector('.submit-btn');
@@ -88,20 +80,11 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
     
-    // Simulate form submission (replace with actual API call)
+    // Reset button after form submission
     setTimeout(() => {
-        // Reset form
-        this.reset();
-        
-        // Show success message
-        alert(document.documentElement.getAttribute('lang') === 'en' 
-            ? 'Thank you for your message. We will get back to you soon!'
-            : 'आपके संदेश के लिए धन्यवाद। हम जल्द ही आपसे संपर्क करेंगे!');
-        
-        // Reset button
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
-    }, 1500);
+    }, 2000);
 });
 
 // Intersection Observer for fade-in animations
