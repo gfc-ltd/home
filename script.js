@@ -57,4 +57,70 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         html.setAttribute('lang', 'en');
     }
+});
+
+// Add loading animation
+const loading = document.createElement('div');
+loading.className = 'loading';
+loading.innerHTML = '<div class="loading-spinner"></div>';
+document.body.appendChild(loading);
+
+// Remove loading animation when page is fully loaded
+window.addEventListener('load', function() {
+    loading.style.display = 'none';
+});
+
+// Handle contact form submission
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form data
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        message: document.getElementById('message').value
+    };
+    
+    // Show loading state
+    const submitBtn = this.querySelector('.submit-btn');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+    
+    // Simulate form submission (replace with actual API call)
+    setTimeout(() => {
+        // Reset form
+        this.reset();
+        
+        // Show success message
+        alert(document.documentElement.getAttribute('lang') === 'en' 
+            ? 'Thank you for your message. We will get back to you soon!'
+            : 'आपके संदेश के लिए धन्यवाद। हम जल्द ही आपसे संपर्क करेंगे!');
+        
+        // Reset button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+    }, 1500);
+});
+
+// Intersection Observer for fade-in animations
+const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Observe all elements with fade-in class
+document.querySelectorAll('.fade-in, .about-card, .product-card').forEach(el => {
+    el.style.animationPlayState = 'paused';
+    observer.observe(el);
 }); 
