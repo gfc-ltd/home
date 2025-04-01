@@ -247,10 +247,44 @@ html[lang="hi"] .lang-en {
 @media (max-width: 768px) {
     .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        margin: 0.5rem 0;
+        display: block;
+        width: 100%;
+        text-align: center;
     }
 
     .mobile-menu {
         display: block;
+        z-index: 1001;
+    }
+
+    .language-switcher {
+        margin-left: 0.5rem;
+        z-index: 1001;
+    }
+
+    nav {
+        padding: 1rem;
+    }
+
+    .logo h1 {
+        font-size: 1.2rem;
     }
 
     .hero-content h1 {
@@ -263,11 +297,6 @@ html[lang="hi"] .lang-en {
 
     .about-grid {
         grid-template-columns: 1fr;
-    }
-
-    .language-switcher {
-        margin-left: 0;
-        margin-top: 1rem;
     }
 }
 
