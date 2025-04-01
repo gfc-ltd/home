@@ -300,6 +300,19 @@ html[lang="hi"] .lang-en {
     .form-group textarea {
         padding: 0.6rem;
     }
+
+    .social-media {
+        padding: 3rem 1rem;
+    }
+    
+    .social-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .social-btn i {
+        font-size: 1.2rem;
+    }
 }
 
 /* Mobile Menu Styles */
