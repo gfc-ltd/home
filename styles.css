@@ -247,40 +247,21 @@ html[lang="hi"] .lang-en {
 @media (max-width: 768px) {
     .nav-links {
         display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        padding: 1rem;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links a {
-        margin: 0.5rem 0;
-        display: block;
-        width: 100%;
-        text-align: center;
     }
 
     .mobile-menu {
         display: block;
-        z-index: 1001;
+        margin-left: auto;
+        margin-right: 1rem;
     }
 
     .language-switcher {
-        margin-left: 0.5rem;
-        z-index: 1001;
+        margin-left: 0;
     }
 
     nav {
         padding: 1rem;
+        position: relative;
     }
 
     .logo h1 {
@@ -311,8 +292,12 @@ html[lang="hi"] .lang-en {
     background: white;
     padding: 1rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
 }
 
 .mobile-menu.active + .nav-links a {
     margin: 0.5rem 0;
+    display: block;
+    width: 100%;
+    text-align: center;
 } 
